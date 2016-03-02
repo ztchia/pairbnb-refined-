@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20160126114911) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.integer  "price"
     t.string   "area"
     t.integer  "user_id"

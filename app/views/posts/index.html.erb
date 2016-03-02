@@ -1,2 +1,7 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<% @posts.each do |post| %>
+<h1> <%= link_to post.title, post %> </h1><br>
+<h> Description: <br> 
+<%= post.description %> </h> <br>
+<h> Price:  <%= post.price %> </h> <br>
+<h> Area:  <%= post.area %> </h> <br>
+<% end %>
