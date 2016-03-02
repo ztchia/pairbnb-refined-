@@ -2,3 +2,7 @@
 <h> Description: <br> <%= @post.description %> </h> <br>
 <h> Price:  <%= @post.price %> </h> <br>
 <h> Area:  <%= @post.area %> </h> <br>
+
+<% if @post.user.id == current_user.id %>
+	<%= link_to "Edit", edit_post_path(@post) %>
+<% end %>

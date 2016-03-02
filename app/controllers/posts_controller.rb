@@ -30,6 +30,9 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   end
 
   def update 
+    if @post.update(post_attributes)
+      redirect_to @post
+    end
   end 
 
 private
