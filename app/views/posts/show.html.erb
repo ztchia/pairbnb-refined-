@@ -2,6 +2,22 @@
 <h> Description: <br> <%= @post.description %> </h> <br>
 <h> Price:  <%= @post.price %> </h> <br>
 <h> Area:  <%= @post.area %> </h> <br>
+<h> Address:  <%= @post.address %> </h> <br>
+<h> Latitude:  <%= @post.latitude %> </h> <br>
+<h> Longitude:  <%= @post.longitude %> </h> <br>
+
+<h1> Map </h1>
+
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@post.latitude}%2C#{@post.longitude}" %>
+
+<h1> Nearby </h1>
+
+<ul>
+<% for post in @post.nearbys(10) %>
+<li><%= link_to @post.address, post %> (<%=post.distance.round(2) %>) </li>
+<% end %>
+</ul>
+
 
 <% if @post.user.id == current_user.id %>
 	<%= link_to "Edit", edit_post_path(@post) %>

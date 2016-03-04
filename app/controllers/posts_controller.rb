@@ -13,9 +13,9 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   end
 
   def create
-  @post = current_user.posts.new(post_attributes)
-	@post.save 
-	redirect_to @post   
+    @post = current_user.posts.new(post_attributes)
+	  @post.save 
+	  redirect_to @post   
   end
 
 
@@ -38,8 +38,7 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
 private
 
   def post_attributes
-    params.require(:post).permit(:user_id, :title, :description, :price, :area)
-
+    params.require(:post).permit(:user_id, :title, :description, :price, :area, :address, :latitude, :longitude)
   end
 
   def set_post

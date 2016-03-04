@@ -7,13 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if !current_user.nil? %>
-	<%= link_to "Edit Profile", edit_user_registration_path %><br>
-	Welcome to PairBnB, <%= current_user.name %>
-<% else %>
-	<%= link_to "Sign In",  user_session_path %>
-	<%= link_to "Sign up", new_user_registration_path %>
-<% end %>
+<div id="user_nav">
+  <% if user_signed_in? %>
+    Signed in as <%= current_user.email %>. Not you?
+    <%= link_to "Edit Profile", edit_user_registration_path %><br>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+  <% end %>
+</div>
+
 <%= yield %>
 
 </body>
