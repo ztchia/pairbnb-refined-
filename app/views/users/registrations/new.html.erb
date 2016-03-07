@@ -1,5 +1,6 @@
 <h2>Sign up</h2>
 
+<div class='row well'>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
@@ -25,10 +26,8 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-
+</div>
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", :class => 'btn btn-warning' %>
   </div>
 <% end %>
-
-<%= render "users/shared/links" %>

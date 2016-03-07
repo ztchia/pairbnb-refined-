@@ -1,23 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang= 'en'>
 <head>
-  <title>Pairbnb</title>
+  <title>PairBNB</title>
+  <link href='css/bootstrap.css' rel='stylesheet'>
+    <link href='css/main.css' rel='stylesheet'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="user_nav">
+
+<nav class='navbar navbar-default navbar-static-top'>
+  <div class="navbar-header">
+  <div class='container'>
+    <a href='/' class='navbar-brand'>
+    <!-- <a href='/'>
+    <span><img src="/assets/little_house.png" width="80"></span> -->
+    <div class='title'>PairBNB</div></a>
+  </a>
   <% if user_signed_in? %>
     Signed in as <%= current_user.email %>. Not you?
-    <%= link_to "Edit Profile", edit_user_registration_path %><br>
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+     <button type='button' class='navbar-toggle'
+     	data-toggle='collapse'
+  		data-target='.navbar-collapse'>
+     	<span class='sr-only'>Toggle navigation</span>
+     	<i class='glyphicon glyphicon-align-justify'></i>
+     </button>
+    <ul class='nav navbar-nav navbar-right collapse navbar-collapse' >
+      <li> <%= link_to "Edit Profile", edit_user_registration_path %><br></li>
+      <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+     </ul>
   <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+  <button type='button' class='navbar-toggle'
+  		data-toggle='collapse'
+  		data-target='.navbar-collapse'>
+  	  <span class='sr-only'>Toggle navigation</span>
+     <span class='icon-bar'></span>
+     <span class='icon-bar'></span>
+     <span class='icon-bar'></span>
+  </button>
+    <ul class='nav navbar-nav navbar-right collapse navbar-collapse'>
+        <li> <%= link_to "Sign up", new_user_registration_path %> <br></li>
+        <li> <%= link_to "Login", new_user_session_path %></li>
+    </ul>
   <% end %>
-</div>
 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="js/bootstrap.min.js"></script>
+  </div>
+ </div>
+</nav>
+<div class='container-fluid'>
 <%= yield %>
-
+</div>
 </body>
 </html>

@@ -1,7 +1,15 @@
-<% @posts.each do |post| %>
-<h1> <%= link_to post.title, post %> </h1><br>
-<h> Description: <br> 
-<%= post.description %> </h> <br>
-<h> Price:  <%= post.price %> </h> <br>
-<h> Area:  <%= post.area %> </h> <br>
-<% end %>
+<div class='container-fluid'> 
+		<div class='row well'>
+			<% @posts.each do |post| %>
+				<div class="col-sm-4">
+					<div class ='row features'>
+				<i class="glyphicon glyphicon-phone"></i></div>
+  				<h1><%=link_to post.title, post %></h1>
+  				<h> Description:
+  				<%= post.description %><br>
+  				<h> Price:  <%= post.price %> </h> <br>
+  				<h> Area:  <%= post.area %> </h><br>
+  			</div>
+		<% end %>
+	 </div>
+</div>
