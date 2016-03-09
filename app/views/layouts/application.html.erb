@@ -1,35 +1,46 @@
 <!DOCTYPE html>
 <html lang= 'en'>
 <head>
-  <title>PairBNB</title>
-  <link href='css/bootstrap.css' rel='stylesheet'>
+    <link href='css/bootstrap.min.css' rel='stylesheet'>
     <link href='css/main.css' rel='stylesheet'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+    <!-- Fonts -->
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
 </head>
+<!-- 
 <body>
 
 <nav class='navbar navbar-default navbar-static-top'>
-  <div class="navbar-header">
-  <div class='container'>
-    <a href='/' class='navbar-brand'>
-    <!-- <a href='/'>
-    <span><img src="/assets/little_house.png" width="80"></span> -->
-    <div class='title'>PairBNB</div></a>
-  </a>
-  <% if user_signed_in? %>
-    Signed in as <%= current_user.email %>. Not you?
-     <button type='button' class='navbar-toggle'
-     	data-toggle='collapse'
-  		data-target='.navbar-collapse'>
-     	<span class='sr-only'>Toggle navigation</span>
-     	<i class='glyphicon glyphicon-align-justify'></i>
+   <div class="navbar-header">
+        <div class='container'>
+            <a href='/' class='navbar-brand'>
+                <a href='/' class='navbar-left col-xs-offset-3 col-md-offset-0'>
+            <span><img src="/assets/little_house.png" width="80"></span>
+        <p class="navbar-text navbar-left title col-xs-offset-1 col-md-offset-0">PairBNB</p> </a>
+     </a> -->
+
+<!--  <% if user_signed_in? %>
+
+    <div class="nav navbar-nav navbar-text navbar-left container col-xs-offset-1"> Signed in as <%= current_user.email %> 
+        <button type='button' class='navbar-toggle'
+     	        data-toggle='collapse'
+  		        data-target='.navbar-collapse'>
+     	  <span class='sr-only'>Toggle navigation</span>
+        <i class='glyphicon glyphicon-align-justify'></i>
      </button>
-    <ul class='nav navbar-nav navbar-right collapse navbar-collapse' >
+    <ul class='navbar-right collapse navbar-collapse list-unstyled list-inline' >
       <li> <%= link_to "Edit Profile", edit_user_registration_path %><br></li>
       <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
      </ul>
+       </div>
+    </div>
+ </div>
+</nav>
   <% else %>
   <button type='button' class='navbar-toggle'
   		data-toggle='collapse'
@@ -43,15 +54,77 @@
         <li> <%= link_to "Sign up", new_user_registration_path %> <br></li>
         <li> <%= link_to "Login", new_user_session_path %></li>
     </ul>
+      </div>
+ </div>
+</nav>
   <% end %>
 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  <script src="js/bootstrap.min.js"></script>
   </div>
  </div>
-</nav>
-<div class='container-fluid'>
+</nav> -->
+<body>
+                  <div class="brand">PairBNB</div>
+                      <% if user_signed_in? %>
+                            <div class="address-bar"> <div id="top-menu"><div class="navbartext"><%= link_to "Edit Profile", edit_user_registration_path %> | <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> | <%= current_user.name %> 
+                              </div>
+                            </div>
+                          </div>
+                      <% else %>
+                            <div class="address-bar"> <div id="top-menu"><div class="navbartext"><%= link_to "Sign up", new_user_registration_path %> | <%= link_to "Login", new_user_session_path %> | login with fb 
+                              </div>
+                            </div>
+                          </div>
+                    <% end %>
+
+<nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+             <button type='button' class='navbar-toggle'
+      data-toggle='collapse'
+      data-target='.navbar-collapse'>
+      <span class='sr-only'>Toggle navigation</span>
+     <span class='icon-bar'></span>
+     <span class='icon-bar'></span>
+     <span class='icon-bar'></span>
+  </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="blog.html">Blog</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 <%= yield %>
 </div>
 </body>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>Copyright &copy; Your Website 2016</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </html>
+
+
+

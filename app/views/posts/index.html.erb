@@ -1,15 +1,16 @@
-<div class='container-fluid'> 
-		<div class='row well'>
+<!-- <div class='container-fluid'> 
+ -->		<div class='row box'>
 			<% @posts.each do |post| %>
 				<div class="col-sm-4">
 					<div class ='row features'>
-				<i class="glyphicon glyphicon-phone"></i></div>
-  				<h1><%=link_to post.title, post %></h1>
-  				<h> Description:
-  				<%= post.description %><br>
-  				<h> Price:  <%= post.price %> </h> <br>
-  				<h> Area:  <%= post.area %> </h><br>
-  			</div>
+							<i class="glyphicon glyphicon-phone"></i>
+  									<h1><%=link_to post.title, post %></h1>
+  								<h> Description:</h>
+  							<%= post.description %><br>
+  						<h> Price:  <%= post.price %> </h> <br>
+  					<h> Area:  <%= post.area %> </h><br>
+  			  </div>
+  		  </div>
 		<% end %>
-	 </div>
+	</div>
 </div>
