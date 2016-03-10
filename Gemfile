@@ -41,7 +41,11 @@ group :development, :test do
   gem 'byebug'
 end
 
-gem 'rails_12factor', group: :production
+group :production do
+
+	gem 'rails_12factor', group: :production
+
+end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
