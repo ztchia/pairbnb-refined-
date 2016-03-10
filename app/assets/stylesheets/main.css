@@ -66,8 +66,10 @@ hr {
     letter-spacing: 3px;
 }
 
+}
 .img-full {
     min-width: 100%;
+    min-height: 100%;
 }
 
 .brand-before,
