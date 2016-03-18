@@ -1,7 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
-
+before_filter :configure_permitted_parameters, only: [:create, :update]
   # GET /resource/sign_up
   # def new
   #   super
@@ -24,7 +24,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # DELETE /resource
   def destroy
-      if @user.destroy 
+    if @user.destroy 
       redirect_to root_path
     end
   end
@@ -38,16 +38,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
-
   private
+  def configure_permitted_parameters
 
-  def sign_up_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :first_name, :last_name, :email, :password,
+      :password_confirmation, :image, :avatar ) }
+
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :password,
+      :password_confirmation, :current_password, :first_name, :last_name, :image, :avatar) }
   end
 
-  def account_update_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :current_password)
-  end
+
+
+  # def sign_up_params
+  #   params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar)
+  # end
+
+  # def account_update_params
+  #   params.require(:user).permit(:name, :email, :password, :password_confirmation, :current_password, :avatar)
+  # end
 
 
   # If you have extra params to permit, append them to the sanitizer.

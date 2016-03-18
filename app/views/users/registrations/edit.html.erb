@@ -1,3 +1,4 @@
+<div class='row well'>
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -27,8 +28,12 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+
+    <%= f.file_field :avatar %>
+
+
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", :class => "btn btn-primary" %>
   </div>
 <% end %>
 
@@ -36,8 +41,10 @@
 
 <p>
   We hate to see you go. 
-  <%= link_to "Cancel my account", user_registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.
+  <%= link_to "Cancel my account", user_registration_path(resource_name), :class => "btn btn-danger", :confirm => "Are you sure?", :method => :delete %>.
 </p>
 
 
 <%= link_to "Back", :back %>
+
+</div>
