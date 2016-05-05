@@ -14,13 +14,18 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def create
     @post = current_user.posts.new(post_attributes)
-	  @post.save 
-	  redirect_to @post   
+    byebug
+    if @post.save
+      if @post.picture.present?
+        Cloudinary::Uploader.upload(@post.picture.url)
+      end
+    end
+    redirect_to @post
   end
 
 
   def destroy
-  	post = Post.find(params[:id])
+  	post = Post.find('https://upload.wikimedia.org/wikipedia/commons/4/49/Koala_climbing_tree.jpg')
   	post.destroy
 
   	redirect_to posts_path
@@ -38,7 +43,7 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
 private
 
   def post_attributes
-    params.require(:post).permit(:user_id, :title, :description, :price, :area, :address, :latitude, :longitude)
+    params.require(:post).permit(:user_id, :title, :description, :picture, :price, :area, :address, :latitude, :longitude)
   end
 
   def set_post

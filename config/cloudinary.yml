@@ -1,19 +1,19 @@
 ---
 development:
-  cloud_name: ENV['cloud_name']
-  api_key: ENV['cloud_key']
-  api_secret: ENV['cloud_secret']
+  cloud_name: ztchia
+  api_key: '884726311218725'
+  api_secret: lHGL3r3YNo3elmxME_PVe7-4mRY
   enhance_image_tag: true
   static_image_support: false
 production:
-  cloud_name: ENV['cloud_name']
-  api_key: ENV['cloud_key']
-  api_secret: ENV['cloud_secret']
+  cloud_name: ztchia
+  api_key: '884726311218725'
+  api_secret: lHGL3r3YNo3elmxME_PVe7-4mRY
   enhance_image_tag: true
   static_image_support: true
 test:
-  cloud_name: ENV['cloud_name']
-  api_key: ENV['cloud_key']
-  api_secret: ENV['cloud_secret']
+  cloud_name: ztchia
+  api_key: '884726311218725'
+  api_secret: lHGL3r3YNo3elmxME_PVe7-4mRY
   enhance_image_tag: true
   static_image_support: false

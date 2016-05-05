@@ -1,3 +1,7 @@
+<%= javascript_include_tag("jquery.ui.widget", "jquery.iframe-transport", 
+                           "jquery.fileupload", "jquery.cloudinary") %>
+<%= cloudinary_js_config %>
+<div class="row well">
 <%= simple_form_for @post do |f| %>
 
   <%= f.input :title %>
@@ -5,5 +9,7 @@
   <%= f.input  :description %>
   <%= f.input :area %>
   <%= f.input :address %>
+  <%= f.file_field :picture %>
  <%= f.button :submit, :class => "btn btn-lg btn-primary" %>
 <% end %>
+</div>
